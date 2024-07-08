@@ -49,4 +49,3 @@ function deleteitem(indx) {
     allBooked.splice(indx, 1);
     displayAll();
 }
-<i class="fa fa-address-card" aria-hidden="true"></i>
