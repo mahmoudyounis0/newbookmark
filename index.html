@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mb-4 border-bottom border-2 pb-3">
+            <div class="col-md-12 text-center my-5">
+                <h1>BookMark</h1>
+            </div>
+            <div class="p-2 col-md-6">
+                <input type="text" name="head" id="head_text" class=" py-2 mb-1 form-control"
+                    placeholder="Make it Facilitate for Remembering...">
+            </div>
+            <div class="p-2 col-md-6">
+                <input type="text" name="link" id="link" class=" py-2 mb-1 form-control"
+                    placeholder="enter your link...">
+            </div>
+            <div class="p-2 col-md-12">
+                <textarea type="text" name="note" id="note" class=" mb-3 form-control" rows="3"
+                    placeholder="notes..."></textarea>
+            </div>
+            <div class="p-2 col-md-12">
+                <button class="btn btn-outline-success" onclick="addNewLink()">Add</button>
+            </div>
+        </div>
+        <div class="row items" id="item">
+            <div class="col-md-3 mb-4" >   
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
