@@ -34,8 +34,8 @@ function displayAll() {
     var storage = "";
     for (let i = 0; i < allBooked.length; i++) {
         storage += `    <div class="col-md-3  " >   
-                <div class="p-2 border border-2 rounded-2 mb-4 text-center">
-                    <h2 class="mb-2">${allBooked[i].head}</h2>
+                <div class="p-2 fs-5 border border-2 rounded-2 mb-4 text-center">
+                    <h2 class="mb-2 overflow-hidden">${allBooked[i].head}</h2>
                     <p>${allBooked[i].message}</p>
                     <div class="d-flex justify-content-between px-2">
                     <a href="${allBooked[i].link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square "></i></a>
