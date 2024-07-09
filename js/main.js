@@ -90,3 +90,16 @@ function edit(indx) {
 function saveToLocalStorage() {
     localStorage.setItem('bookmarks', JSON.stringify(allBooked));
 }
+function search() {
+    let result = []
+    let search = search_text.value.toLowerCase();
+    allBooked.filter((item) => {
+        if (item.head.toLowerCase().includes(search) ||
+            item.link.toLowerCase().includes(search) ||
+            item.message.toLowerCase().includes(search)) {
+                result.push(item)
+        }
+    });
+    displayAll(result);
+
+}
