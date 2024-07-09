@@ -90,4 +90,3 @@ function edit(indx) {
 function saveToLocalStorage() {
     localStorage.setItem('bookmarks', JSON.stringify(allBooked));
 }
-~
