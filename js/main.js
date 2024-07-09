@@ -4,9 +4,16 @@ const message = document.querySelector("#note")
 const element = document.querySelector("#item")
 const btn_insrt = document.querySelector("#btn_insrt")
 const edit_btn = document.querySelector("#edit_btn")
-const allBooked = []
+let allBooked = []
 
 
+if (localStorage.getItem('bookmarks')) {
+
+    allBooked = JSON.parse(localStorage.getItem('bookmarks')); console.log(allBooked);
+    displayAll()
+
+}
+btn_insrt.addEventListener('click', addNewLink);
 
 function addNewLink() {
     var newBookedLink = {};
@@ -20,6 +27,7 @@ function addNewLink() {
             message: message.value
         }
         allBooked.push(newBookedLink);
+        saveToLocalStorage();
         displayAll();
         clear();
     }
@@ -34,7 +42,7 @@ function displayAll() {
     var storage = "";
     for (let i = 0; i < allBooked.length; i++) {
         storage += `    <div class="col-md-3  " >   
-                <div class="p-2 fs-5 overflow-hidden border border-2 rounded-2 mb-4 text-center">
+                <div class="p-2 overflow-hidden border border-2 rounded-2 mb-4 text-center">
                     <h2 class="mb-2">${allBooked[i].head}</h2>
                     <p>${allBooked[i].message}</p>
                     <div class="d-flex justify-content-between px-2">
@@ -54,6 +62,7 @@ function clear() {
 }
 function deleteitem(indx) {
     allBooked.splice(indx, 1);
+    saveToLocalStorage();
     displayAll();
 }
 function edit(indx) {
@@ -74,4 +83,7 @@ function edit(indx) {
             btn_insrt.innerHTML = "Add"
         }
     }
+}
+function saveToLocalStorage() {
+    localStorage.setItem('bookmarks', JSON.stringify(allBooked));
 }
