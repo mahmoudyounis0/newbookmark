@@ -7,3 +7,17 @@
         cursor: pointer;
     }
 }
+.input-group {
+    width: 50%; /* adjust the width as needed */
+  }
+  
+  .input-group-text {
+    background-color: #fff;
+    border: none;
+    padding: 0.5rem;
+  }
+  
+  .input-group-text i {
+    font-size: 1.2rem;
+    color: #666;
+  }

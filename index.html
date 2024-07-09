@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SaveIT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -32,15 +32,24 @@
                     placeholder="notes..."></textarea>
             </div>
             <div class="p-2 col-md-12">
-                <button id="btn_insrt" class="btn btn-outline-success me-2" onclick="addNewLink()">Add</button>
-
+                <div class="d-flex justify-content-between">
+                    <button id="btn_insrt" class="btn btn-outline-success me-2" onclick="addNewLink()">Add</button>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search bookmarks" id="search_text">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                               <label for="search_text" onclick="search()"> <i class="fas fa-search"></i></label>
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
+
         </div>
         <div class="row items" id="item">
-        
-            
-            
+
+
+
         </div>
     </div>
 

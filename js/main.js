@@ -4,13 +4,14 @@ const message = document.querySelector("#note")
 const element = document.querySelector("#item")
 const btn_insrt = document.querySelector("#btn_insrt")
 const edit_btn = document.querySelector("#edit_btn")
+const search_text = document.querySelector("#search_text");
 let allBooked = []
 
 
 if (localStorage.getItem('bookmarks')) {
 
     allBooked = JSON.parse(localStorage.getItem('bookmarks')); console.log(allBooked);
-    displayAll()
+    displayAll(allBooked)
 
 }
 btn_insrt.addEventListener('click', addNewLink);
@@ -24,11 +25,12 @@ function addNewLink() {
         newBookedLink = {
             head: head_text.value,
             link: link__.value,
-            message: message.value
+            message: (message.value == "" ? "Easy-access" : message.value)
+
         }
         allBooked.push(newBookedLink);
         saveToLocalStorage();
-        displayAll();
+        displayAll(allBooked);
         clear();
     }
     if (btn_insrt.innerHTML == "Edit") {
@@ -38,15 +40,15 @@ function addNewLink() {
 
 }
 
-function displayAll() {
+function displayAll(array) {
     var storage = "";
-    for (let i = 0; i < allBooked.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         storage += `    <div class="col-md-3  " >   
                 <div class="p-2 overflow-hidden border border-2 rounded-2 mb-4 text-center">
-                    <h2 class="mb-2">${allBooked[i].head}</h2>
-                    <p>${allBooked[i].message}</p>
+                    <h2 class="mb-2">${array[i].head}</h2>
+                    <p>${array[i].message}</p>
                     <div class="d-flex justify-content-between px-2">
-                    <a href="${allBooked[i].link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square "></i></a>
+                    <a href="${array[i].link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square "></i></a>
                     <i onclick="edit(${i})" id="edit_btn" class="fa-regular fa-pen-to-square"></i>
                     <i onclick="deleteitem(${i})" class="fa-solid fa-trash text-danger"></i> </div>
                 </div>
@@ -63,7 +65,7 @@ function clear() {
 function deleteitem(indx) {
     allBooked.splice(indx, 1);
     saveToLocalStorage();
-    displayAll();
+    displayAll(allBooked);
 }
 function edit(indx) {
     btn_insrt.innerHTML = "Edit"
@@ -78,7 +80,8 @@ function edit(indx) {
             allBooked[indx].head = head_text.value;
             allBooked[indx].link = link__.value;
             allBooked[indx].message = message.value;
-            displayAll();
+            saveToLocalStorage();
+            displayAll(allBooked);
             clear();
             btn_insrt.innerHTML = "Add"
         }
@@ -87,3 +90,4 @@ function edit(indx) {
 function saveToLocalStorage() {
     localStorage.setItem('bookmarks', JSON.stringify(allBooked));
 }
+~
