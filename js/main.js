@@ -8,7 +8,7 @@ const allBooked = []
 
 
 
-btn_insrt.addEventListener('click', () => {
+function addNewLink() {
     var newBookedLink = {};
     if (head_text.value == "") {
         head_text.placeholder = "pls enter valid data...";
@@ -28,13 +28,13 @@ btn_insrt.addEventListener('click', () => {
         clear();
     }
 
-})
+}
 
 function displayAll() {
     var storage = "";
     for (let i = 0; i < allBooked.length; i++) {
-        storage += `    <div class="col-md-3 mb-4 text-center " >   
-                <div class="p-2 border border-2 rounded-2">
+        storage += `    <div class="col-md-3  " >   
+                <div class="p-2 border border-2 rounded-2 mb-4 text-center">
                     <h2 class="mb-2">${allBooked[i].head}</h2>
                     <p>${allBooked[i].message}</p>
                     <div class="d-flex justify-content-between px-2">
@@ -55,16 +55,23 @@ function clear() {
 function deleteitem(indx) {
     allBooked.splice(indx, 1);
     displayAll();
-}   
+}
 function edit(indx) {
-        btn_insrt.innerHTML = "Edit"
-        head_text.value = allBooked[indx].head;
-        link__.value = allBooked[indx].link;
-        message.value = allBooked[indx].message;
-        btn_insrt.addEventListener('click', () => {
+    btn_insrt.innerHTML = "Edit"
+    head_text.value = allBooked[indx].head;
+    link__.value = allBooked[indx].link;
+    message.value = allBooked[indx].message;
+    btn_insrt.onclick = function () {
+        if (btn_insrt.innerHTML == "Add") {
+            addNewLink();
+        }
+        else {
             allBooked[indx].head = head_text.value;
             allBooked[indx].link = link__.value;
-            allBooked[indx].message=message.value;
-            deleteitem(indx)
-        })
+            allBooked[indx].message = message.value;
+            displayAll();
+            clear();
+            btn_insrt.innerHTML = "Add"
+        }
     }
+}
