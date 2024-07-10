@@ -31,14 +31,14 @@
                 <textarea type="text" name="note" id="note" class=" mb-3 form-control" rows="3"
                     placeholder="notes..."></textarea>
             </div>
-            <div class="p-2 col-md-12">
+           <div class="p-2 col-md-12">
                 <div class="d-flex justify-content-between">
                     <button id="btn_insrt" class="btn btn-outline-success me-2" onclick="addNewLink()">Add</button>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search bookmarks" id="search_text">
+                        <input type="text" onkeyup="search()" class="form-control" placeholder="Search bookmarks" id="search_text">
                         <!-- <div class="input-group-prepend">
                             <span class="input-group-text"> -->
-                               <button onclick="search()" class="btn "> <i class="fas fa-search"></i></button>
+                               <!-- <button onclick="search()" class="btn "> <i class="fas fa-search"></i></button> -->
                             <!-- </span>
                         </div> -->
                     </div>
