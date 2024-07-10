@@ -45,8 +45,8 @@ function displayAll(array) {
     for (let i = 0; i < array.length; i++) {
         storage += `    <div class="col-md-3  " >   
                 <div class="p-2 overflow-hidden border border-2 rounded-2 mb-4 text-center">
-                    <h2 class="mb-2">${array[i].head}</h2>
-                    <p>${array[i].message}</p>
+                    <h2 class="mb-2" id="marked">${array[i].head}</h2>
+                    <p id="marked">${array[i].message}</p>
                     <div class="d-flex justify-content-between px-2">
                     <a href="${array[i].link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square "></i></a>
                     <i onclick="edit(${i})" id="edit_btn" class="fa-regular fa-pen-to-square"></i>
@@ -94,12 +94,12 @@ function search() {
     let result = []
     let search = search_text.value.toLowerCase();
     allBooked.filter((item) => {
-        if (item.head.toLowerCase().includes(search) ||
-            item.link.toLowerCase().includes(search) ||
-            item.message.toLowerCase().includes(search)) {
+        if (item.head.toLowerCase().includes(search)) {
                 result.push(item)
+                
         }
-    });
+        
+    }); 
     displayAll(result);
 
 }
