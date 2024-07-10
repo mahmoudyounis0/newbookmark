@@ -25,7 +25,7 @@ function addNewLink() {
         newBookedLink = {
             head: head_text.value,
             link: link__.value,
-            message: (message.value == "" ? "Easy-access" : message.value)
+            message:message.value
 
         }
         allBooked.push(newBookedLink);
