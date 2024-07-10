@@ -101,7 +101,7 @@ function search(search_item) {
     // }); 
     // displayAll(result);
     var store = "";
-    for (let i = 0; i < allBooked.length; i++) {
+    /*for (let i = 0; i < allBooked.length; i++) {
             if (allBooked[i].head.toLowerCase().includes(search_item)) {
                 store += `    <div class="col-md-3  " >   
                 <div class="p-2 overflow-hidden border border-2 rounded-2 mb-4 text-center">
@@ -114,6 +114,20 @@ function search(search_item) {
                 </div>
             </div>`
             }
-    }
+    }*/
+     allBooked.filter((item) => {
+      if (item.head.toLowerCase().includes(search_item)) {
+           store += `    <div class="col-md-3  " >   
+                <div class="p-2 overflow-hidden border border-2 rounded-2 mb-4 text-center">
+                    <h2 class="mb-2" id="marked">${allBooked[i].head}</h2>
+                    <p id="marked">${allBooked[i].message}</p>
+                    <div class="d-flex justify-content-between px-2">
+                    <a href="${allBooked[i].link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square "></i></a>
+                    <i onclick="edit(${i})" id="edit_btn" class="fa-regular fa-pen-to-square"></i>
+                    <i onclick="deleteitem(${i})" class="fa-solid fa-trash text-danger"></i> </div>
+                </div>
+            </div>`
+
+      }
     element.innerHTML = store;
 }
