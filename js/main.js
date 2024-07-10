@@ -10,7 +10,7 @@ let allBooked = []
 
 if (localStorage.getItem('bookmarks')) {
 
-    allBooked = JSON.parse(localStorage.getItem('bookmarks')); console.log(allBooked);
+    allBooked = JSON.parse(localStorage.getItem('bookmarks'));
     displayAll(allBooked)
 
 }
